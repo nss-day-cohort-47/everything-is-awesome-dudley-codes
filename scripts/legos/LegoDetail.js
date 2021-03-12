@@ -27,3 +27,12 @@ export const LegoDetail = (brick) => {
       //false? return the block
       return block;
 }}
+
+// export const sortByMaterial = (brick) => {
+
+//   let sortBrick = `<option value="${brick.Material}">${brick.Material}</option>
+//   `
+
+//   return sortBrick;
+
+// }
