@@ -14,4 +14,19 @@ const render = (legoData) => {
   	})
   	//Since HTMLArray is an array, we can use join to make it a string
   	legoDisplay.innerHTML = HTMLArray.join("");
-}
+};
+
+// export const makeMaterialList = (materialArray) => {
+// 	renderDropdown(materialArray)
+// };
+
+// const renderDropdown = (legoData) => {
+// 	const dropdownDisplay = document.querySelector("#block-material");
+
+// 	let HTMLList = legoData.map(oneLego => {
+// 		return sortByMaterial(oneLego);
+// 	})
+// 		dropdownDisplay.innerHTML = HTMLList.join("");
+	
+// }
+

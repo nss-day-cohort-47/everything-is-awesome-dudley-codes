@@ -24,6 +24,42 @@ const filterLegos = (whatFilter) => {
 }
 
 
+navElement.addEventListener("change", (event) => {
+	if (event.target.id === "block-material") {
+		const currentMaterial = event.target.value
+		showFilteredLegos(currentMaterial)
+		console.log("You tried to sort", currentMaterial)
+	}
+});
+
+const showFilteredLegos = (lego) => {
+	const filteredLego = useLegos().filter(singleLego => {
+		if (singleLego.Material === lego) {
+			return singleLego
+		}
+		
+	})
+	console.log("Filtered Lego is", filteredLego)
+	const filterElement = document.querySelector("#all-legos");
+		filterElement.innerHTML = makeLegoList(filteredLego)
+
+	}
+
+
+
+
+
+
+
+
+
+// const filterMaterial = (whatFilter) => {
+// 	const materialArray = useLegos().filter(singleLego => {
+// 		if (singleLego.)
+// 	})
+// }
+
+
 const startEIA = () => {
 	loadLegos()
 	.then(legoArray => {
