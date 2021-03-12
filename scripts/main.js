@@ -1,6 +1,6 @@
 console.log("hello beautiful")
 import { loadLegos, useLegos } from './legos/LegoData.js'
-import { makeLegoList } from './legos/LegoList.js';
+import { makeLegoList, render } from './legos/LegoList.js';
 
 const navElement = document.querySelector("nav");
 
@@ -28,7 +28,7 @@ navElement.addEventListener("change", (event) => {
 	if (event.target.id === "block-material") {
 		const currentMaterial = event.target.value
 		showFilteredLegos(currentMaterial)
-		console.log("You tried to sort", currentMaterial)
+		console.log("You filtered by", currentMaterial)
 	}
 });
 
@@ -39,9 +39,8 @@ const showFilteredLegos = (lego) => {
 		}
 		
 	})
-	console.log("Filtered Lego is", filteredLego)
-	const filterElement = document.querySelector("#all-legos");
-		filterElement.innerHTML = makeLegoList(filteredLego)
+	// console.log("Filtered Lego is", filteredLego)
+	makeLegoList(filteredLego);
 
 	}
 
