@@ -4,7 +4,7 @@ export const makeLegoList = (legosArray) => {
   render(legosArray)
 };
 
-export const render = (legoData) => {
+const render = (legoData) => {
   	const legoDisplay = document.querySelector("#all-legos");
 	//What is map?
 	//what does map return? An Array.

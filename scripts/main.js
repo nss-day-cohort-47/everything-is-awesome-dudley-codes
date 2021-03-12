@@ -1,6 +1,6 @@
 console.log("hello beautiful")
 import { loadLegos, useLegos } from './legos/LegoData.js'
-import { makeLegoList, render } from './legos/LegoList.js';
+import { makeLegoList } from './legos/LegoList.js';
 
 const navElement = document.querySelector("nav");
 
@@ -37,27 +37,35 @@ const showFilteredLegos = (lego) => {
 		if (singleLego.Material === lego) {
 			return singleLego
 		}
-		
 	})
 	// console.log("Filtered Lego is", filteredLego)
 	makeLegoList(filteredLego);
 
 	}
+// Search function
+navElement.addEventListener("keyup", (event) => {
+	if (event.key === "Enter" && event.target.id === "searchInput"){
+			console.log("Keyup worked!")
+			searchLegos();
+		}
+	})
 
 
+const searchLegos = () => {
+	const legoID = document.getElementById("searchInput").value
+	console.log("legoID", legoID)
+	console.log("this is a test")
+	const legoSearch = useLegos().filter(singleLego => {
+		if(singleLego.LegoId === legoID){
+		return singleLego;
+	}
+	})
+	if (legoSearch.length === 0){
+		document.getElementById("all-legos").innerHTML = `<h3>That Lego ID does not exist`
+	}
+	else {makeLegoList(legoSearch)}
 
-
-
-
-
-
-
-// const filterMaterial = (whatFilter) => {
-// 	const materialArray = useLegos().filter(singleLego => {
-// 		if (singleLego.)
-// 	})
-// }
-
+}
 
 const startEIA = () => {
 	loadLegos()
